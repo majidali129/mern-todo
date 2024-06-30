@@ -29,13 +29,13 @@ app.use(
   })
 );
 
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    method: ['GET', 'POST', 'DELETE', 'PATCH'],
-    Credential: true,
-  })
-);
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'DELETE', 'PATCH'],
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 app.use(cookieParser());
 app.use(express.json());

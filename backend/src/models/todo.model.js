@@ -32,4 +32,8 @@ const todoSchema = Schema(
   { timestamps: true }
 );
 
+todoSchema.pre(/^find/, function (next) {
+  this._v = undefined;
+  next();
+});
 export const Todo = mongoose.model('Todo', todoSchema);

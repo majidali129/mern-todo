@@ -51,9 +51,22 @@ const deleteTodo = asyncHandler(async (req, res, next) => {
   res.status(200).json(new apiResponse(200, {}, 'todo deleted successfully'));
 });
 
-const getAllTodos = asyncHandler(async (req, res, next) => {});
+const getAllTodos = asyncHandler(async (req, res, next) => {
+  const todos = await Todo.find();
+
+  res
+    .status(200)
+    .json(
+      new apiResponse(
+        200,
+        { results: todos.length, todos },
+        'all todos fetched successfully'
+      )
+    );
+});
 
 const getTodoDetails = asyncHandler(async (req, res, next) => {
+  console.log(req.params);
   const todo = await Todo.findById(req.params.todoId);
   if (!todo) return next(new apiError(404, 'No todo found for that ID'));
 
