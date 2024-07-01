@@ -19,9 +19,11 @@
   textarea,
   button,
   ul,
-  li,
-  a {
+  li {
     @apply text-slate-900;
+  }
+  a {
+    @apply text-white;
   }
 }
 

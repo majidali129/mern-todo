@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -50,8 +51,18 @@ const SignUp = () => {
         type="file"
         label="Avatar"
       />
-      <div className="flex justify-end py-2">
-        <Button type="submit">Register</Button>
+      <div className="flex flex-col py-2">
+        <div className="flex justify-end">
+          <Button type="submit" classname="w-fit">
+            Register
+          </Button>
+        </div>
+        <p className="text-center">
+          Already have an account?{" "}
+          <Link to="/login" className="text-lg text-blue-400">
+            Login
+          </Link>
+        </p>
       </div>
     </Form>
   );

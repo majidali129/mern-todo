@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -35,8 +36,21 @@ const Login = () => {
           setPassword(e.target.value)
         }
       />
-      <div className="flex justify-end py-2">
-        <Button type="submit">Login</Button>
+      <Link to="/forgot-password" className="text-blue-500">
+        Forgot Password
+      </Link>
+      <div className="flex flex-col py-2">
+        <div className="flex justify-end">
+          <Button type="submit" classname="w-fit">
+            Register
+          </Button>
+        </div>
+        <p className="text-center">
+          Don't have an account?{" "}
+          <Link to="/Signup" className="text-lg text-blue-400">
+            Sign Up
+          </Link>
+        </p>
       </div>
     </Form>
   );

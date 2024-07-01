@@ -19,6 +19,10 @@ const todoSchema = Schema(
       default: [],
       index: true,
     },
+    isCompleted: {
+      type: Boolean,
+      default: false,
+    },
     priority: {
       type: String,
       enum: {

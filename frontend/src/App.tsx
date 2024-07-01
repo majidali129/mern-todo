@@ -3,6 +3,13 @@ import { useEffect, useState } from "react";
 import SignUp from "./features/auth/SignUp";
 import axios from "axios";
 import { todoType } from "./types";
+import Todos from "./features/todos/Todos";
+import { NavLink, Route, Routes } from "react-router-dom";
+import Login from "./features/auth/Login";
+import UpdatePassword from "./features/auth/UpdatePassword";
+import ForgotPassword from "./features/auth/ForgotPassword";
+import Layout from "./ui/Layout";
+import AddTodo from "./features/todos/AddTodo";
 // import ForgotPassword from "./features/auth/ForgotPassword";
 // import Login from "./features/auth/Login";
 // import UpdatePassword from "./features/auth/UpdatePassword";
@@ -43,9 +50,41 @@ const App = () => {
     fetchTodos();
   }, []);
   return (
-    <div>
-      <SignUp />{" "}
-    </div>
+    // <>
+    //   <nav className="flex items-center justify-end gap-x-4 *:border *:border-sky-300">
+    //     <li className="list-none">
+    //       <NavLink to="/">Todos</NavLink>
+    //     </li>
+    //     <li className="list-none">
+    //       <NavLink to="/signup">Sign Up</NavLink>
+    //     </li>
+    //     <li className="list-none">
+    //       <NavLink to="/login">Login</NavLink>
+    //     </li>
+    //     <li className="list-none">
+    //       <NavLink to="/update-password">Update Password</NavLink>
+    //     </li>
+    //     <li className="list-none">
+    //       <NavLink to="/forgot-password">Forgot Password</NavLink>
+    //     </li>
+    //   </nav>
+    //   <Routes>
+    //     <Route index element={<Todos />} />
+    //     <Route path="signup" element={<SignUp />} />
+    //     <Route path="login" element={<Login />} />
+    //     <Route path="update-password" element={<UpdatePassword />} />
+    //     <Route path="forgot-password" element={<ForgotPassword />} />
+    //   </Routes>
+    // </>
+    <>
+      <Routes>
+        <Route path="add-todo" element={<AddTodo />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="login" element={<Login />} />
+        <Route path="forgot-password" element={<ForgotPassword />} />
+      </Routes>
+      <Layout />
+    </>
   );
 };
 
