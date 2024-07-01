@@ -3,16 +3,10 @@ import { useEffect, useState } from "react";
 import SignUp from "./features/auth/SignUp";
 import axios from "axios";
 import { todoType } from "./types";
-import Todos from "./features/todos/Todos";
-import { NavLink, Route, Routes } from "react-router-dom";
 import Login from "./features/auth/Login";
-import UpdatePassword from "./features/auth/UpdatePassword";
 import ForgotPassword from "./features/auth/ForgotPassword";
 import Layout from "./ui/Layout";
 import AddTodo from "./features/todos/AddTodo";
-// import ForgotPassword from "./features/auth/ForgotPassword";
-// import Login from "./features/auth/Login";
-// import UpdatePassword from "./features/auth/UpdatePassword";
 
 const config = {
   withCredentials: true, // Include credentials in the request
